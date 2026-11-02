@@ -30,6 +30,8 @@ type Target struct {
 
 	Brokers    []string          `yaml:"brokers"`
 	Addresses  []string          `yaml:"addresses"`
+	Group    string        `yaml:"group"`
+	Topic     string        `yaml:"topic"`
 	TLS        bool              `yaml:"tls"`
 	Attributes map[string]string `yaml:"attributes"`
 	SASL       SASLConfig        `yaml:"sasl"`

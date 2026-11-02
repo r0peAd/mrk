@@ -1,0 +1,9 @@
+.idea/*
+*.log
+vendor/
+/.git/
+.DS_Store
+.vscode
+AGENTS.md
+config.yaml
+main
