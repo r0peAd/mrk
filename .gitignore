@@ -7,3 +7,5 @@ vendor/
 AGENTS.md
 config.yaml
 main
+build/*
+conncheck
