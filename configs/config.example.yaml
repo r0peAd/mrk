@@ -1,0 +1,80 @@
+defaults:
+  timeout: 5s
+  username: ""
+  password: ""
+
+mysql:
+  - name: mysql-primary
+    host: 127.0.0.1
+    port: 3306
+    username: root
+    password: root
+    database: mysql
+  - name: mysql-report
+    host: 127.0.0.1
+    port: 3307
+    username: root
+    password: root
+    database: report
+
+postgresql:
+  - name: pg-primary
+    host: 127.0.0.1
+    port: 5432
+    username: postgres
+    password: postgres
+    database: postgres
+  - name: pg-analytics
+    host: 127.0.0.1
+    port: 5433
+    username: postgres
+    password: postgres
+    database: analytics
+    tls: false
+
+redis:
+  - name: redis-cache
+    host: 127.0.0.1
+    port: 6379
+  - name: redis-session
+    host: 127.0.0.1
+    port: 6380
+    password: secret
+    database: "1"
+    sasl:
+      enabled: false
+
+mongodb:
+  - name: mongo-primary
+    host: 127.0.0.1
+    port: 27017
+    username: root
+    password: root
+    database: admin
+    attributes:
+      auth_database: admin
+  - name: mongo-replica
+    addresses:
+      - 127.0.0.1:27018
+      - 127.0.0.1:27019
+      - 127.0.0.1:27020
+    username: root
+    password: root
+    database: admin
+    attributes:
+      auth_database: admin
+
+kafka:
+  - name: kafka-main
+    brokers:
+      - 127.0.0.1:9092
+      - 127.0.0.1:9093
+  - name: kafka-secure
+    brokers:
+      - kafka.example.com:9093
+    tls: true
+    sasl:
+      enabled: true
+      mechanism: scram-sha-512
+      username: user
+      password: secret
